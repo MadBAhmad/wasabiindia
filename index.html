@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Wasabi — creative studio and AI marketing. Website coming soon."
+    />
+    <meta name="theme-color" content="#090909" />
+    <title>Wasabi — Creative Studio · AI Marketing</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        background: #090909;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        background: #090909;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 100svh;
+        overflow: hidden;
+        background: #090909;
+      }
+
+      .hero__ambient {
+        position: absolute;
+        inset: -8%;
+        width: 116%;
+        height: 116%;
+        object-fit: cover;
+        filter: blur(28px) brightness(0.45);
+        transform: scale(1.04);
+      }
+
+      .hero__ambient--unavailable {
+        visibility: hidden;
+      }
+
+      .hero__video {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: min(100vw, 133.333svh);
+        height: auto;
+        max-height: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+        margin: auto;
+        z-index: 1;
+      }
+
+      .hero__contact {
+        position: absolute;
+        z-index: 2;
+        top: clamp(1.25rem, 4vw, 3rem);
+        right: clamp(1.25rem, 5.5vw, 5rem);
+        color: #f2f0ed;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 0.4rem;
+      }
+
+      .hero__contact:hover,
+      .hero__contact:focus-visible {
+        color: #e72b45;
+      }
+
+      @media (max-width: 700px) {
+        .hero__video {
+          width: min(100vw, 56.25svh);
+          aspect-ratio: 9 / 16;
+        }
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero">
+      <h1 class="visually-hidden">Wasabi — Creative Studio · AI Marketing</h1>
+      <a class="hero__contact" href="contact.html">Contact</a>
+      <video
+        class="hero__ambient"
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        tabindex="-1"
+      ></video>
+      <video
+        class="hero__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="public/media/wasabi-hero-poster-1200x900.jpg"
+        aria-label="Wasabi creative studio website coming soon"
+      >
+        <source
+          data-desktop-src="public/media/wasabi-hero-loop-1200x900.mp4"
+          data-mobile-src="public/media/wasabi-reel-01-the-brief-1080p-2.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support HTML video.
+      </video>
+    </main>
+    <script>
+      const video = document.querySelector(".hero__video");
+      const ambientVideo = document.querySelector(".hero__ambient");
+      const source = video.querySelector("source");
+      const mobileLayout = window.matchMedia("(max-width: 700px)");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      function selectVideo() {
+        const nextSource = mobileLayout.matches
+          ? source.dataset.mobileSrc
+          : source.dataset.desktopSrc;
+
+        if (source.getAttribute("src") !== nextSource) {
+          source.src = nextSource;
+          video.load();
+        }
+
+        if (ambientVideo.getAttribute("src") !== nextSource) {
+          ambientVideo.src = nextSource;
+          ambientVideo.load();
+          ambientVideo.classList.remove("hero__ambient--unavailable");
+        }
+
+        if (reducedMotion.matches) {
+          video.pause();
+          ambientVideo.pause();
+          video.controls = true;
+          return;
+        }
+
+        video.controls = false;
+        ambientVideo.play().then(
+          () => ambientVideo.classList.remove("hero__ambient--unavailable"),
+          () => ambientVideo.classList.add("hero__ambient--unavailable"),
+        );
+        video.play().catch(() => {
+          video.controls = true;
+        });
+      }
+
+      mobileLayout.addEventListener("change", selectVideo);
+      reducedMotion.addEventListener("change", selectVideo);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) selectVideo();
+      });
+      selectVideo();
+    </script>
+  </body>
+</html>

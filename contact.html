@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111111" />
+    <meta
+      name="description"
+      content="Get in touch with Wasabi Creative Studio and AI Marketing."
+    />
+    <title>Contact — Wasabi</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        background: #111;
+        color: #f2f0ed;
+        font-family: Georgia, "Times New Roman", serif;
+        font-synthesis: none;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #111;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .contact-page {
+        width: min(100% - 3rem, 1200px);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 0 3rem;
+      }
+
+      .brand {
+        color: #f2f0ed;
+        font-size: 1.4rem;
+        letter-spacing: 0.18em;
+        text-decoration: none;
+      }
+
+      .brand span {
+        margin-right: 0.65rem;
+        font-size: 2rem;
+        letter-spacing: 0;
+      }
+
+      .nav-link,
+      .eyebrow,
+      .field label,
+      .form-title,
+      .footer {
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .nav-link {
+        text-underline-offset: 0.7rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(19rem, 0.8fr);
+        gap: clamp(3rem, 10vw, 9rem);
+        padding: 0 0 4rem;
+      }
+
+      .eyebrow,
+      .form-title,
+      .field label {
+        color: #b6b2ae;
+      }
+
+      h1 {
+        max-width: 10ch;
+        margin: 0.7rem 0 1.4rem;
+        font-size: clamp(3.8rem, 9vw, 7rem);
+        font-weight: 400;
+        letter-spacing: -0.07em;
+        line-height: 0.84;
+      }
+
+      h1 em {
+        display: block;
+        margin-top: 0.15em;
+        color: #e72b45;
+        font-weight: 400;
+      }
+
+      .intro {
+        max-width: 32rem;
+        color: #bbb7b2;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        line-height: 1.55;
+      }
+
+      .contact-details {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .detail {
+        border-top: 1px solid #383633;
+        padding-top: 0.9rem;
+      }
+
+      .detail p {
+        margin: 0.55rem 0 0;
+        color: #bdb9b4;
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      .email-link {
+        display: inline-block;
+        font-size: clamp(1rem, 1.6vw, 1.3rem);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+      }
+
+      .form-title {
+        margin: 0 0 1.4rem;
+      }
+
+      form {
+        display: grid;
+        gap: 1.1rem;
+      }
+
+      .field {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .field[hidden] {
+        display: none;
+      }
+
+      .field input,
+      .field textarea {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #393735;
+        border-radius: 0;
+        padding: 0.45rem 0 0.7rem;
+        background: transparent;
+        color: #f2f0ed;
+        font: inherit;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        border-color: #e72b45;
+        outline: none;
+      }
+
+      .field textarea {
+        min-height: 5rem;
+        resize: vertical;
+      }
+
+      .submit {
+        justify-self: start;
+        margin-top: 0.5rem;
+        border: 0;
+        padding: 1rem 1.6rem;
+        background: #e72b45;
+        color: #fff;
+        font: inherit;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .submit:hover,
+      .submit:focus-visible {
+        background: #c91e36;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        border-top: 1px solid #383633;
+        padding: 1.2rem 0 1.5rem;
+        color: #b6b2ae;
+        font-size: 0.65rem;
+      }
+
+      @media (max-width: 700px) {
+        .contact-page {
+          width: min(100% - 2.5rem, 34rem);
+        }
+
+        .topbar {
+          padding: 1.25rem 0 2.5rem;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          padding-bottom: 2.5rem;
+        }
+
+        h1 {
+          font-size: clamp(2.8rem, 14vw, 5.4rem);
+        }
+
+        .contact-details {
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+
+        .footer {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .contact-details {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="contact-page">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Wasabi home">
+          <span aria-hidden="true">W</span>WASABI
+        </a>
+        <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+      </header>
+
+      <div class="contact-grid">
+        <section aria-labelledby="contact-heading">
+          <div class="eyebrow">Contact</div>
+          <h1 id="contact-heading">Bring us the brief. <em>Messy is fine.</em></h1>
+          <p class="intro">
+            Tell us what you are building, launching or fixing. We will come
+            back with a point of view, not a price list.
+          </p>
+
+          <div class="contact-details">
+            <section class="detail" aria-label="Email Wasabi">
+              <div class="eyebrow">Write to us</div>
+              <p>
+                <a class="email-link" href="mailto:digital@wasabiindia.com">
+                  digital@wasabiindia.com
+                </a>
+              </p>
+            </section>
+            <section class="detail" aria-label="Visit the studio">
+              <div class="eyebrow">Visit the studio</div>
+              <p>
+                Level 15, Concorde Towers<br />
+                1 Vittal Mallya Road, Ashok Nagar<br />
+                UB City, Bengaluru<br />
+                Karnataka 560001
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section aria-labelledby="form-heading">
+          <h2 class="form-title" id="form-heading">Start a conversation</h2>
+          <form id="contact-form" aria-describedby="form-status">
+            <div class="field" aria-hidden="true" hidden>
+              <label for="website">Leave this field empty</label>
+              <input
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="brief">The brief, in a line or two</label>
+              <textarea id="brief" name="brief" required></textarea>
+            </div>
+            <button class="submit" type="submit">Send the brief</button>
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <span>© 2026 Wasabi</span>
+        <span>Creative Studio · AI Marketing</span>
+      </footer>
+    </main>
+    <script>
+      const form = document.querySelector("#contact-form");
+      const formStatus = document.querySelector("#form-status");
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        formStatus.textContent = "";
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          });
+          const responseText = await response.text();
+          let result;
+
+          try {
+            result = responseText ? JSON.parse(responseText) : null;
+          } catch {
+            result = null;
+          }
+
+          if (!result || typeof result !== "object") {
+            throw new Error(
+              "The contact service is unavailable. Deploy this site to Vercel to enable form email.",
+            );
+          }
+
+          if (!response.ok) {
+            throw new Error(result.error || "Your message could not be sent.");
+          }
+
+          form.reset();
+          formStatus.textContent = "Thanks — your brief has been sent.";
+        } catch (error) {
+          formStatus.textContent =
+            error instanceof Error
+              ? `${error.message} You can also email digital@wasabiindia.com.`
+              : "Your message could not be sent. Please email digital@wasabiindia.com.";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send the brief";
+        }
+      });
+    </script>
+  </body>
+</html>
